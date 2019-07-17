@@ -7,7 +7,7 @@
 ##' @param service API service for which data are requested. See \code{\link{list_services}}
 ##' @param endpoint Service endpoint
 ##' @param aqs_user User information in the form of a list with \code{username} and \code{key}. See \code{\link{aqs_signup}}. If not provided, searches for an object of this name in the global environement.
-##' @param vars List of variables for the endpoint request. See \code{\link{list_variables}}.
+##' @param vars List of variables for the endpoint request. See \code{\link{list_vars}}.
 ##' @param run Logical indicating whether request should be submitted (\code{TRUE}, default), or only the query URL returned (\code{FALSE}).
 ##' @param rawResponse Logical indicating that JSON response should be returned directly without checking or formatting. Used primarily in debugging.
 ##' @importFrom httr modify_url GET

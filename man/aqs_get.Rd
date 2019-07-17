@@ -14,7 +14,7 @@ aqs_get(service, endpoint, aqs_user, vars = NULL, run = TRUE,
 
 \item{aqs_user}{User information in the form of a list with \code{username} and \code{key}. See \code{\link{aqs_signup}}. If not provided, searches for an object of this name in the global environement.}
 
-\item{vars}{List of variables for the endpoint request. See \code{\link{list_variables}}.}
+\item{vars}{List of variables for the endpoint request. See \code{\link{list_vars}}.}
 
 \item{run}{Logical indicating whether request should be submitted (\code{TRUE}, default), or only the query URL returned (\code{FALSE}).}
 
