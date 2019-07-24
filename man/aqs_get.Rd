@@ -12,7 +12,7 @@ aqs_get(service, endpoint, aqs_user, vars = NULL, run = TRUE,
 
 \item{endpoint}{Service endpoint}
 
-\item{aqs_user}{User information in the form of a list with \code{username} and \code{key}. See \code{\link{aqs_signup}}. If not provided, searches for an object of this name in the global environement.}
+\item{aqs_user}{User information in the form of a list with \code{email} and \code{key}. See \code{\link{create_user}}.}
 
 \item{vars}{List of variables for the endpoint request. See \code{\link{list_vars}}.}
 
@@ -24,5 +24,5 @@ aqs_get(service, endpoint, aqs_user, vars = NULL, run = TRUE,
 Get data from query to AQS API
 }
 \seealso{
-\code{\link{aqs_sampleData}} \code{\link{aqs_list}}
+\code{\link{aqs_sampleData}} \code{\link{aqs_list}} \code{\link{create_user}}
 }

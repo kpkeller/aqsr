@@ -21,7 +21,7 @@ aqs_list_sites(aqs_user, state, county, ...)
 aqs_list_parameters(aqs_user, pc, ...)
 }
 \arguments{
-\item{aqs_user}{User information in the form of a list with \code{username} and \code{key}. See \code{\link{aqs_signup}}. If not provided, searches for an object of this name in the global environement.}
+\item{aqs_user}{User information in the form of a list with \code{email} and \code{key}. See \code{\link{create_user}}.}
 
 \item{endpoint}{Service endpoint}
 

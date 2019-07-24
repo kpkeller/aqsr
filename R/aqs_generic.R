@@ -6,12 +6,12 @@
 ##' @title Get data from query to AQS API
 ##' @param service API service for which data are requested. See \code{\link{list_services}}
 ##' @param endpoint Service endpoint
-##' @param aqs_user User information in the form of a list with \code{username} and \code{key}. See \code{\link{aqs_signup}}. If not provided, searches for an object of this name in the global environement.
+##' @param aqs_user User information in the form of a list with \code{email} and \code{key}. See \code{\link{create_user}}.
 ##' @param vars List of variables for the endpoint request. See \code{\link{list_vars}}.
 ##' @param run Logical indicating whether request should be submitted (\code{TRUE}, default), or only the query URL returned (\code{FALSE}).
 ##' @param rawResponse Logical indicating that JSON response should be returned directly without checking or formatting. Used primarily in debugging.
 ##' @importFrom httr modify_url GET
-##' @seealso \code{\link{aqs_sampleData}} \code{\link{aqs_list}}
+##' @seealso \code{\link{aqs_sampleData}} \code{\link{aqs_list}} \code{\link{create_user}}
 ##' @export
 aqs_get <- function(service,
                     endpoint,
@@ -19,19 +19,14 @@ aqs_get <- function(service,
                     vars=NULL,
                     run=TRUE,
                     rawResponse=FALSE){
-    if(missing(aqs_user)){
-        aqs_user <- get0("aqs_user",
-                         envir=.GlobalEnv,
-                         ifnotfound="UserMissing")
-    }
-    if (aqs_user[[1]]=="UserMissing") stop("User info required. Please provide your credentials (see aqs_signup())")
+    if (missing(aqs_user)) stop("User info required. Please provide your credentials (see 'create_user()'")
     if (service!="signup") checkUser(aqs_user)
 
     checkService(service)
     checkEndpoint(service, endpoint)
     if (!is.null(endpoint)) checkVars(endpoint, vars)
 
-    query_list <- list(email=aqs_user$username,
+    query_list <- list(email=aqs_user$email,
                        key=aqs_user$key)
     query_list <- c(query_list,
                     vars)
@@ -82,10 +77,10 @@ check_response <- function(obj){
 
 # Checks user object
 checkUser <- function(usr){
-    username <- usr$username
+    email <- usr$email
     key <- usr$key
-    if (is.null(username)){
-        stop("Username is missing.")
+    if (is.null(email)){
+        stop("User email address is missing.")
     }
     if (is.null(key)){
         stop("User key is missing.")
