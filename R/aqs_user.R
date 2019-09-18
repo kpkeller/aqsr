@@ -5,6 +5,7 @@
 ##' @details The AQS API requires an email address and key for all queries. The key is not used for authentication (as in a password), but it is used for identification.
 ##' @return \code{create_user} returns a list containing the email and key.
 ##' @seealso \code{\link{aqs_get}}
+##' @export
 create_user <- function(email,
                      key){
     list(email=email,
