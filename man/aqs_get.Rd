@@ -8,7 +8,7 @@ aqs_get(url = NULL, service, endpoint, aqs_user, vars = NULL,
   run = TRUE, rawResponse = FALSE)
 }
 \arguments{
-\item{url}{URL for API request. If provided, all other arguments except \text{run} are ignored. Intended primarily for use with URLs constructed by an earlier call to \code{aqs_get} with \code{run=FALSE}.}
+\item{url}{URL for API request. If provided, all other arguments except \code{run} are ignored. Intended primarily for use with URLs constructed by an earlier call to \code{aqs_get} with \code{run=FALSE}.}
 
 \item{service}{API service for which data are requested. See \code{\link{list_services}}}
 

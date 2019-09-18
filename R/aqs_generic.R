@@ -4,7 +4,7 @@
 # Send query to AQS API
 ##' @name aqs_get
 ##' @title Get data from query to AQS API
-##' @param url URL for API request. If provided, all other arguments except \text{run} are ignored. Intended primarily for use with URLs constructed by an earlier call to \code{aqs_get} with \code{run=FALSE}.
+##' @param url URL for API request. If provided, all other arguments except \code{run} are ignored. Intended primarily for use with URLs constructed by an earlier call to \code{aqs_get} with \code{run=FALSE}.
 ##' @param service API service for which data are requested. See \code{\link{list_services}}
 ##' @param endpoint Service endpoint
 ##' @param aqs_user User information in the form of a list with \code{email} and \code{key}. See \code{\link{create_user}}.
