@@ -24,9 +24,9 @@ Create user-key object for accessing AQS API
 }
 \details{
 The AQS API requires an email address and key for all queries. The key is not used for authentication (as in a password), but it is used for identification.
+
+Use \code{aqs_signup} to register an email and obtain a key phrase. The key value is emailed to the provided address, it is not return directly from the API.
 }
 \seealso{
-\code{\link{aqs_signup}}
-
-\code{\link{create_user}}
+\code{\link{aqs_get}}
 }
