@@ -16,6 +16,7 @@
 ##' @param ... Additional arguments passed to \code{\link{aqs_get}}
 ##' @seealso \code{\link{aqs_get}}
 ##' @family Data Query Functions
+##' @export
 aqs_sampleData <- function(aqs_user,
                          endpoint=c("bySite",
                                     "byCounty",
