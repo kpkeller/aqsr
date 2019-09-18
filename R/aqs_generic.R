@@ -4,6 +4,7 @@
 # Send query to AQS API
 ##' @name aqs_get
 ##' @title Get data from query to AQS API
+##' @param url URL for API request. If provided, all other arguments except \text{run} are ignored. Intended primarily for use with URLs constructed by an earlier call to \code{aqs_get} with \code{run=FALSE}.
 ##' @param service API service for which data are requested. See \code{\link{list_services}}
 ##' @param endpoint Service endpoint
 ##' @param aqs_user User information in the form of a list with \code{email} and \code{key}. See \code{\link{create_user}}.
@@ -13,12 +14,16 @@
 ##' @importFrom httr modify_url GET
 ##' @seealso \code{\link{aqs_sampleData}} \code{\link{aqs_list}} \code{\link{create_user}}
 ##' @export
-aqs_get <- function(service,
+aqs_get <- function(url=NULL,
+                    service,
                     endpoint,
                     aqs_user,
                     vars=NULL,
                     run=TRUE,
                     rawResponse=FALSE){
+    if (!is.null(url)){
+        call_url <- url
+    } else {
     if (missing(aqs_user)) stop("User info required. Please provide your credentials (see 'create_user()'")
     if (service!="signup") checkUser(aqs_user)
 
@@ -37,6 +42,7 @@ aqs_get <- function(service,
                                        ifelse(!is.null(endpoint),
                                               paste0("/",endpoint), "")),
                            query=query_list)
+    }
     if (run){
         out <- httr::GET(call_url)
         if (!rawResponse){
