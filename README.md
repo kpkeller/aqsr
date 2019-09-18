@@ -17,4 +17,7 @@ All functions for requesting data from the API require that this be provided in 
 
 ### Requesting Data
 
-The primary function for requesting measurements stored in the AQS database is `aqs_sampleData()`. Information on parameter codes and required input for defining data requests can be obtained from the API using `aqs_list()`.
+The primary functions for requesting measurements stored in the AQS database are `aqs_annualData()`, `aqs_dailyData()`, and `aqs_sampleData()`. Information on parameter codes and required input for defining data requests can be obtained from the API using `aqs_list()`. Variations of each function exist for queries targeting a specific criteria, e.g. `aqs_annualData_byState()`. 
+
+The underlying function that queries the API is `aqs_get()`, which can be called directly if desired.
+

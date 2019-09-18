@@ -54,6 +54,9 @@ aqs_sampleData_byCBSA(aqs_user, param, bdate, edate, cbsa, ...)
 \description{
 Extract data from the AQS API
 }
+\details{
+This queries the database using the "sampleData" endpoint. This will return any combination of measurements that meet the specified criteria. To query daily and annual summaries calculated by AQS, use \code{\link{aqs_dailyData}} and \code{\link{aqs_annualData}}.
+}
 \seealso{
 \code{\link{aqs_get}}
 

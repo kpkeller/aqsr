@@ -14,6 +14,7 @@
 ##' @param minlon Minimum longitude for the bounding box. Required when \code{endpoint} is \code{byBox}.
 ##' @param maxlon Maximum longitude for the bounding box. Required when \code{endpoint} is \code{byBox}.
 ##' @param ... Additional arguments passed to \code{\link{aqs_get}}
+##' @details This queries the database using the "sampleData" endpoint. This will return any combination of measurements that meet the specified criteria. To query daily and annual summaries calculated by AQS, use \code{\link{aqs_dailyData}} and \code{\link{aqs_annualData}}.
 ##' @seealso \code{\link{aqs_get}}
 ##' @family Data Query Functions
 ##' @export
