@@ -37,6 +37,11 @@ aqs_sampleData <- function(aqs_user,
                         maxlon=NULL,
                          ...){
 
+    if (checkDates(bdate)) stop("'bdate' must be a string of length 8 in the format YYYYMMDD.")
+    if (checkDates(edate)) stop("'edate' must be a string of length 8 in the format YYYYMMDD.")
+    if (as.Date(bdate, format="%Y%m%d") > as.Date(edate, format="%Y%m%d")){
+        stop("'bdate' must be the same as or prior to 'edate'.")
+    }
     vars <- list(param=param,
                  bdate=bdate,
                  edate=edate,
@@ -400,5 +405,13 @@ aqs_dailyData_byCBSA <- function(aqs_user,
     out
 }
 
-
-
+##' @importFrom methods is
+checkDates <- function(date){
+    flag <- 0
+    if (nchar(date)!=8 | !methods::is(date, "character")){
+        flag <- 1
+    } else if (is.na(suppressWarnings(as.Date(date, format="%Y%m%d")))){
+        flag <- 1
+    }
+    flag
+}
