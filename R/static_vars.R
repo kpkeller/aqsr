@@ -9,6 +9,7 @@ test_user <- list(username="test@aqs.api",
 ##' @name list_services
 ##' @title List of Services and Endpoints for AQS API
 ##' @return A list containing the possible services or the possible endpoints for a specified service
+##' @seealso aqs_list
 ##' @export
 list_services <- function(){
     c("signup",

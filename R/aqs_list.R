@@ -2,6 +2,7 @@
 ##' @title List available services by endpoint
 ##' @inheritParams aqs_get
 ##' @param ... Additional arguments passed to \code{\link{aqs_get}}.
+##' @seealso aqs_get list_services
 ##' @export
 aqs_list <- function(aqs_user,
                      endpoint=c("states",
@@ -58,6 +59,15 @@ aqs_list_sites <- function(aqs_user,
              endpoint="sitesByCounty",
              vars=list(state=state,
                        county=county),
+             ...)
+}
+##' @rdname aqs_list
+##' @inheritParams aqs_sampleData
+##' @export
+aqs_list_classes <- function(aqs_user,
+                           ...){
+    aqs_list(aqs_user,
+             endpoint="classes",
              ...)
 }
 

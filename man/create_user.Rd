@@ -25,7 +25,7 @@ Create user-key object for accessing AQS API
 \details{
 The AQS API requires an email address and key for all queries. The key is not used for authentication (as in a password), but it is used for identification.
 
-The email and key can be stored as environment variables as AQS_EMAIL and AQS_KEY, respectively, rather than specified as function arguments.
+Once established, the email and key can be stored as environment variables as AQS_EMAIL and AQS_KEY, respectively.  Calling \code{create_user} without any argument will then read from these values. Care should still be taken to avoid storing the resulting object in a public repository.
 
 Use \code{aqs_signup} to register an email and obtain a key phrase. The key value is emailed to the provided address, it is not return directly from the API.
 }

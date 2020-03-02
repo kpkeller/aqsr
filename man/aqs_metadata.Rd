@@ -6,15 +6,17 @@
 \alias{aqs_fieldsByService}
 \title{Query metadata functions in AQS API}
 \usage{
-aqs_metadata(aqs_user, endpoint = c("isAvailable", "fieldsByService"),
-  ...)
+aqs_metadata(aqs_user, endpoint = c("isAvailable", "fieldsByService"), ...)
 
 aqs_isAvailable(aqs_user)
 
-aqs_fieldsByService(aqs_user, service = c("fieldsByService ", "list",
-  "sampleData", "monitors", "sampleData", "dailyData", "annualData",
-  "qaBlanks", "qaCollocated", "qaFlowRateVerifications",
-  "qaFlowRateAudits", "qaOnePointQcRawData", "qaPepAudits"), ...)
+aqs_fieldsByService(
+  aqs_user,
+  service = c("fieldsByService ", "list", "sampleData", "monitors", "sampleData",
+    "dailyData", "annualData", "qaBlanks", "qaCollocated", "qaFlowRateVerifications",
+    "qaFlowRateAudits", "qaOnePointQcRawData", "qaPepAudits"),
+  ...
+)
 }
 \arguments{
 \item{aqs_user}{User information in the form of a list with \code{email} and \code{key}. See \code{\link{create_user}}.}

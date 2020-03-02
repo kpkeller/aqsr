@@ -3,7 +3,7 @@
 ##' @param email Email address of user
 ##' @param key Key phrase of user
 ##' @details The AQS API requires an email address and key for all queries. The key is not used for authentication (as in a password), but it is used for identification.
-##' @details The email and key can be stored as environment variables as AQS_EMAIL and AQS_KEY, respectively, rather than specified as function arguments.
+##' @details Once established, the email and key can be stored as environment variables as AQS_EMAIL and AQS_KEY, respectively.  Calling \code{create_user} without any argument will then read from these values. Care should still be taken to avoid storing the resulting object in a public repository.
 ##' @return \code{create_user} returns a list containing the email and key.
 ##' @seealso \code{\link{aqs_get}}
 ##' @export

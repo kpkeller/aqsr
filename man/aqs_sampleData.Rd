@@ -8,13 +8,24 @@
 \alias{aqs_sampleData_byCBSA}
 \title{Extract data from the AQS API}
 \usage{
-aqs_sampleData(aqs_user, endpoint = c("bySite", "byCounty", "byState",
-  "byBox", "byCBSA"), param, bdate, edate, state = NULL, county = NULL,
-  site = NULL, cbsa = NULL, minlat = NULL, maxlat = NULL,
-  minlon = NULL, maxlon = NULL, ...)
+aqs_sampleData(
+  aqs_user,
+  endpoint = c("bySite", "byCounty", "byState", "byBox", "byCBSA"),
+  param,
+  bdate,
+  edate,
+  state = NULL,
+  county = NULL,
+  site = NULL,
+  cbsa = NULL,
+  minlat = NULL,
+  maxlat = NULL,
+  minlon = NULL,
+  maxlon = NULL,
+  ...
+)
 
-aqs_sampleData_bySite(aqs_user, param, bdate, edate, state, county, site,
-  ...)
+aqs_sampleData_bySite(aqs_user, param, bdate, edate, state, county, site, ...)
 
 aqs_sampleData_byCounty(aqs_user, param, bdate, edate, state, county, ...)
 
@@ -60,7 +71,8 @@ This queries the database using the "sampleData" endpoint. This will return any 
 \seealso{
 \code{\link{aqs_get}}
 
-Other Data Query Functions: \code{\link{aqs_annualData}},
-  \code{\link{aqs_dailyData}}
+Other Data Query Functions: 
+\code{\link{aqs_annualData}()},
+\code{\link{aqs_dailyData}()}
 }
 \concept{Data Query Functions}

@@ -8,13 +8,24 @@
 \alias{aqs_dailyData_byCBSA}
 \title{Extract daily average data data from the AQS API}
 \usage{
-aqs_dailyData(aqs_user, endpoint = c("bySite", "byCounty", "byState",
-  "byBox", "byCBSA"), param, bdate, edate, state = NULL, county = NULL,
-  site = NULL, cbsa = NULL, minlat = NULL, maxlat = NULL,
-  minlon = NULL, maxlon = NULL, ...)
+aqs_dailyData(
+  aqs_user,
+  endpoint = c("bySite", "byCounty", "byState", "byBox", "byCBSA"),
+  param,
+  bdate,
+  edate,
+  state = NULL,
+  county = NULL,
+  site = NULL,
+  cbsa = NULL,
+  minlat = NULL,
+  maxlat = NULL,
+  minlon = NULL,
+  maxlon = NULL,
+  ...
+)
 
-aqs_dailyData_bySite(aqs_user, param, bdate, edate, state, county, site,
-  ...)
+aqs_dailyData_bySite(aqs_user, param, bdate, edate, state, county, site, ...)
 
 aqs_dailyData_byCounty(aqs_user, param, bdate, edate, state, county, ...)
 
@@ -57,7 +68,8 @@ Extract daily average data data from the AQS API
 \seealso{
 \code{\link{aqs_get}}
 
-Other Data Query Functions: \code{\link{aqs_annualData}},
-  \code{\link{aqs_sampleData}}
+Other Data Query Functions: 
+\code{\link{aqs_annualData}()},
+\code{\link{aqs_sampleData}()}
 }
 \concept{Data Query Functions}

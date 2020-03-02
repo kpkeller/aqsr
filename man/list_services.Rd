@@ -23,3 +23,6 @@ A list containing the possible services or the possible endpoints for a specifie
 \description{
 List of Services and Endpoints for AQS API
 }
+\seealso{
+aqs_list
+}

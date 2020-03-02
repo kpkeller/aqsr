@@ -5,18 +5,25 @@
 \alias{aqs_list_states}
 \alias{aqs_list_counties}
 \alias{aqs_list_sites}
+\alias{aqs_list_classes}
 \alias{aqs_list_parameters}
 \title{List available services by endpoint}
 \usage{
-aqs_list(aqs_user, endpoint = c("states", "countiesByState",
-  "sitesByCounty", "cbsas", "classes", "parametersByClass", "pqaos",
-  "mas"), vars = NULL, ...)
+aqs_list(
+  aqs_user,
+  endpoint = c("states", "countiesByState", "sitesByCounty", "cbsas", "classes",
+    "parametersByClass", "pqaos", "mas"),
+  vars = NULL,
+  ...
+)
 
 aqs_list_states(aqs_user, ...)
 
 aqs_list_counties(aqs_user, state, ...)
 
 aqs_list_sites(aqs_user, state, county, ...)
+
+aqs_list_classes(aqs_user, ...)
 
 aqs_list_parameters(aqs_user, pc, ...)
 }
@@ -37,4 +44,7 @@ aqs_list_parameters(aqs_user, pc, ...)
 }
 \description{
 List available services by endpoint
+}
+\seealso{
+aqs_get list_services
 }

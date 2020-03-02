@@ -4,8 +4,15 @@
 \alias{aqs_get}
 \title{Get data from query to AQS API}
 \usage{
-aqs_get(url = NULL, service, endpoint, aqs_user, vars = NULL,
-  run = TRUE, rawResponse = FALSE)
+aqs_get(
+  url = NULL,
+  service,
+  endpoint,
+  aqs_user,
+  vars = NULL,
+  run = TRUE,
+  rawResponse = FALSE
+)
 }
 \arguments{
 \item{url}{URL for API request. If provided, all other arguments except \code{run} are ignored. Intended primarily for use with URLs constructed by an earlier call to \code{aqs_get} with \code{run=FALSE}.}
