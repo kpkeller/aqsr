@@ -1,7 +1,7 @@
 Package: aqsr
 Type: Package
 Title: Interface to EPA AQS
-Version: 0.1.0.9010
+Version: 0.1.0.9011
 Author: person("Joshua", "Keller", email="joshua.keller@colostate.edu", role=c("aut", "cre"))
 Maintainer: Joshua Keller <joshua.keller@colostate.edu>
 Description: Provides an interface to the API of the Air Quality System (AQS) database of the U.S. Environmental Protection Agency (EPA).

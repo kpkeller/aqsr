@@ -49,10 +49,10 @@ aqs_sampleData <- function(aqs_user,
                  county=county,
                  site=site,
                  cbsa=cbsa,
-                 minlat,
-                 maxlat,
-                 minlon,
-                 maxlon)
+                 minlat=minlat,
+                 maxlat=maxlat,
+                 minlon=minlon,
+                 maxlon=maxlon)
     # Only pass needed variables
     vars <- vars[names(vars) %in% list_vars(endpoint=endpoint)]
     out <- aqs_get(service="sampleData",
@@ -181,10 +181,10 @@ aqs_annualData <- function(aqs_user,
                  county=county,
                  site=site,
                  cbsa=cbsa,
-                 minlat,
-                 maxlat,
-                 minlon,
-                 maxlon)
+                 minlat=minlat,
+                 maxlat=maxlat,
+                 minlon=minlon,
+                 maxlon=maxlon)
     # Only pass needed variables
     vars <- vars[names(vars) %in% list_vars(endpoint=endpoint)]
     out <- aqs_get(service="annualData",
@@ -313,10 +313,10 @@ aqs_dailyData <- function(aqs_user,
                  county=county,
                  site=site,
                  cbsa=cbsa,
-                 minlat,
-                 maxlat,
-                 minlon,
-                 maxlon)
+                 minlat=minlat,
+                 maxlat=maxlat,
+                 minlon=minlon,
+                 maxlon=maxlon)
     # Only pass needed variables
     vars <- vars[names(vars) %in% list_vars(endpoint=endpoint)]
     out <- aqs_get(service="dailyData",
