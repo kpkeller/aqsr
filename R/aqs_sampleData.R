@@ -155,6 +155,7 @@ aqs_sampleData_byCBSA <- function(aqs_user,
 ##' @param state Two-digit state code. Required when \code{endpoint} is one of \code{byState}, \code{byCounty}, \code{bySite}.
 ##' @seealso \code{\link{aqs_get}}
 ##' @family Data Query Functions
+##' @export
 aqs_annualData <- function(aqs_user,
                            endpoint=c("bySite",
                                       "byCounty",
