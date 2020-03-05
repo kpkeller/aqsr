@@ -4,7 +4,7 @@
 ##' @param endpoint Endpoint for selecting data. Required variables vary by endpoint.
 ##' @param param Parameter code for which to extract data
 ##' @param bdate Begin date for data sample interval. Should be a string in format "YYYYMMDD"
-##' @param edate End date for data sample interval. Should be a string in format "YYYYMMDD"
+##' @param edate End date for data sample interval. Should be a string in format "YYYYMMDD". Must be from the same year as \code{edate}.
 ##' @param state Two-digit state code. Required when \code{endpoint} is one of \code{byState}, \code{byCounty}, \code{bySite}.
 ##' @param county Three-digit county code. Required when \code{endpoint} is \code{byCounty} or \code{bySite}.
 ##' @param site Three-digit site code. Required when \code{endpoint} is \code{bySite}.
@@ -41,6 +41,9 @@ aqs_sampleData <- function(aqs_user,
     if (checkDates(edate)) stop("'edate' must be a string of length 8 in the format YYYYMMDD.")
     if (as.Date(bdate, format="%Y%m%d") > as.Date(edate, format="%Y%m%d")){
         stop("'bdate' must be the same as or prior to 'edate'.")
+    }
+    if (substr(edate, 1, 4) != substr(bdate, 1, 4)){
+        stop("'bdate' and 'edate' must be the same year.")
     }
     vars <- list(param=param,
                  bdate=bdate,

@@ -56,8 +56,6 @@ aqs_get <- function(url=NULL,
     out
 }
 
-
-# WORKING HERE
 ##' @importFrom httr http_type http_error content status_code
 ##' @importFrom jsonlite fromJSON
 check_response <- function(obj){

@@ -14,5 +14,10 @@ test_that("short 'bdate' fails", {
 
 
 test_that("bdate after edate fails", {
+    expect_error(aqs_sampleData(edate="19990101", bdate="19990201"), "same as or prior to 'edate'")
+})
+
+
+test_that("multi-year request fails", {
     expect_error(aqs_sampleData(edate="19990101", bdate="20000101"), "same as or prior to 'edate'")
 })
