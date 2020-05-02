@@ -38,11 +38,11 @@ aqs_dailyData_byCBSA(aqs_user, param, bdate, edate, cbsa, ...)
 
 \item{endpoint}{Service endpoint}
 
-\item{param}{Parameter code for which to extract data}
+\item{param}{Parameter code for which to extract data. Up to five codes may included in a single request.}
 
 \item{bdate}{Begin date for data sample interval. Should be a string in format "YYYYMMDD"}
 
-\item{edate}{End date for data sample interval. Should be a string in format "YYYYMMDD"}
+\item{edate}{End date for data sample interval. Should be a string in format "YYYYMMDD". Must be from the same year as \code{edate}.}
 
 \item{state}{Two-digit state code. Required when \code{endpoint} is one of \code{byState}, \code{byCounty}, \code{bySite}.}
 

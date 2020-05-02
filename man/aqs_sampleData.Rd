@@ -38,7 +38,7 @@ aqs_sampleData_byCBSA(aqs_user, param, bdate, edate, cbsa, ...)
 
 \item{endpoint}{Endpoint for selecting data. Required variables vary by endpoint.}
 
-\item{param}{Parameter code for which to extract data}
+\item{param}{Parameter code for which to extract data. Up to five codes may included in a single request.}
 
 \item{bdate}{Begin date for data sample interval. Should be a string in format "YYYYMMDD"}
 
