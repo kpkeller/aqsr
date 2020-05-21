@@ -32,7 +32,7 @@ aqs_list_parameters(aqs_user, pc, ...)
 
 \item{endpoint}{Service endpoint}
 
-\item{vars}{List of variables for the endpoint request. See \code{\link{list_vars}}.}
+\item{vars}{List of variables for the endpoint request. See \code{\link{list_required_vars}}.}
 
 \item{...}{Additional arguments passed to \code{\link{aqs_get}}.}
 

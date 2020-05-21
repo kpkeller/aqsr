@@ -103,11 +103,11 @@ list_endpoints <- function(service=NULL){
 }
 
 
-##' @name list_vars
+##' @name list_required_vars
 ##' @rdname list_services
 ##' @param endpoint Endpoint for which variables should be returned. A value of NULL returns a list with all services.
 ##' @export
-list_vars <- function(endpoint=NULL){
+list_required_vars <- function(endpoint=NULL){
 
   vars <- list(isAvailable=NULL,
                issues=NULL,
@@ -156,6 +156,48 @@ list_vars <- function(endpoint=NULL){
                       "bdate",
                       "edate",
                       "ma"))
+  if (is.null(endpoint)){
+    return(vars)
+  } else {
+    if (length(endpoint)>1) stop("'service' should have length 1.")
+    endpoint <- match.arg(endpoint, names(vars))
+    return(vars[[endpoint]])
+  }
+}
+
+
+##' @name list_optional_vars
+##' @rdname list_services
+##' @param endpoint Endpoint for which variables should be returned. A value of NULL returns a list with all services.
+##' @export
+list_optional_vars <- function(endpoint=NULL){
+
+  vars <- list(isAvailable=NULL,
+               issues=NULL,
+               revisionHistory=NULL,
+               fieldsByServce=NULL,
+               states=NULL,
+               countiesByState=NULL,
+               sitesByCounty=NULL,
+               cbsas=NULL,
+               classes=NULL,
+               parametersByClass=NULL,
+               pqaos=NULL,
+               mas=NULL,
+               bySite=c("cbdate",
+                        "cedate"),
+               byCounty=c("cbdate",
+                          "cedate"),
+               byState=c("cbdate",
+                         "cedate"),
+               byBox=c("cbdate",
+                       "cedate"),
+               byCBSA=c("cbdate",
+                        "cedate"),
+               byPQAO=c("cbdate",
+                        "cedate"),
+               byMA=c("cbdate",
+                      "cedate"))
   if (is.null(endpoint)){
     return(vars)
   } else {

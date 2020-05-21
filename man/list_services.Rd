@@ -3,14 +3,17 @@
 \name{list_services}
 \alias{list_services}
 \alias{list_endpoints}
-\alias{list_vars}
+\alias{list_required_vars}
+\alias{list_optional_vars}
 \title{List of Services and Endpoints for AQS API}
 \usage{
 list_services()
 
 list_endpoints(service = NULL)
 
-list_vars(endpoint = NULL)
+list_required_vars(endpoint = NULL)
+
+list_optional_vars(endpoint = NULL)
 }
 \arguments{
 \item{service}{Service for which endpoints should be returned. A value of NULL returns a list with all services.}

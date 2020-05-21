@@ -17,6 +17,8 @@ aqs_sampleData(
   state = NULL,
   county = NULL,
   site = NULL,
+  cbdate = NULL,
+  cedate = NULL,
   cbsa = NULL,
   minlat = NULL,
   maxlat = NULL,
@@ -49,6 +51,10 @@ aqs_sampleData_byCBSA(aqs_user, param, bdate, edate, cbsa, ...)
 \item{county}{Three-digit county code. Required when \code{endpoint} is \code{byCounty} or \code{bySite}.}
 
 \item{site}{Three-digit site code. Required when \code{endpoint} is \code{bySite}.}
+
+\item{cbdate}{Optional begin date for the date of last change interval. Should be a string in format "YYYYMMDD". If \code{cbdate} is provided, so much \code{cedate}.}
+
+\item{cedate}{Optional end date for data of last change interval. Should be a string in format "YYYYMMDD". If \code{cedate} is provided, so much \code{cbdate}.}
 
 \item{cbsa}{Three-digit census-bureau statistical area (CBSA) code. Required when \code{endpoint} is \code{byCBSA}.}
 

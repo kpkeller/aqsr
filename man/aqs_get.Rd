@@ -23,7 +23,7 @@ aqs_get(
 
 \item{aqs_user}{User information in the form of a list with \code{email} and \code{key}. See \code{\link{create_user}}.}
 
-\item{vars}{List of variables for the endpoint request. See \code{\link{list_vars}}.}
+\item{vars}{List of variables for the endpoint request. See \code{\link{list_required_vars}}.}
 
 \item{run}{Logical indicating whether request should be submitted (\code{TRUE}, default), or only the query URL returned (\code{FALSE}).}
 

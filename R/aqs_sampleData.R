@@ -8,6 +8,8 @@
 ##' @param state Two-digit state code. Required when \code{endpoint} is one of \code{byState}, \code{byCounty}, \code{bySite}.
 ##' @param county Three-digit county code. Required when \code{endpoint} is \code{byCounty} or \code{bySite}.
 ##' @param site Three-digit site code. Required when \code{endpoint} is \code{bySite}.
+##' @param cbdate Optional begin date for the date of last change interval. Should be a string in format "YYYYMMDD". If \code{cbdate} is provided, so much \code{cedate}.
+##' @param cedate Optional end date for data of last change interval. Should be a string in format "YYYYMMDD". If \code{cedate} is provided, so much \code{cbdate}.
 ##' @param cbsa Three-digit census-bureau statistical area (CBSA) code. Required when \code{endpoint} is \code{byCBSA}.
 ##' @param minlat Minimum latitude for the bounding box. Required when \code{endpoint} is \code{byBox}.
 ##' @param maxlat Maximum latitude for the bounding box. Required when \code{endpoint} is \code{byBox}.
@@ -30,6 +32,8 @@ aqs_sampleData <- function(aqs_user,
                          state=NULL,
                          county=NULL,
                          site=NULL,
+                         cbdate=NULL,
+                         cedate=NULL,
                         cbsa=NULL,
                         minlat=NULL,
                         maxlat=NULL,
@@ -45,6 +49,14 @@ aqs_sampleData <- function(aqs_user,
     if (substr(edate, 1, 4) != substr(bdate, 1, 4)){
         stop("'bdate' and 'edate' must be the same year.")
     }
+    if (!is.null(cbdate) || !is.null(cedate)){
+        if (is.null(cbdate) || is.null(cedate)) stop("If 'cbdate' or 'cedate' is provided, the other must also be provided.")
+        if (checkDates(cbdate)) stop("'cbdate' must be a string of length 8 in the format YYYYMMDD.")
+        if (checkDates(cedate)) stop("'cedate' must be a string of length 8 in the format YYYYMMDD.")
+        if (as.Date(cbdate, format="%Y%m%d") > as.Date(cedate, format="%Y%m%d")){
+            stop("'cbdate' must be the same as or prior to 'cedate'.")
+        }
+    }
     if (length(param)>5){
         stop("'param' is limited to 5 parameter codes in a single request.")
     }
@@ -58,13 +70,15 @@ aqs_sampleData <- function(aqs_user,
                  state=state,
                  county=county,
                  site=site,
+                 cbdate=cbdate,
+                 cedate=cedate,
                  cbsa=cbsa,
                  minlat=minlat,
                  maxlat=maxlat,
                  minlon=minlon,
                  maxlon=maxlon)
     # Only pass needed variables
-    vars <- vars[names(vars) %in% list_vars(endpoint=endpoint)]
+    vars <- vars[names(vars) %in% c(list_required_vars(endpoint=endpoint), list_optional_vars(endpoint=endpoint))]
     out <- aqs_get(service="sampleData",
                    endpoint=endpoint,
                    aqs_user=aqs_user,
@@ -174,6 +188,8 @@ aqs_annualData <- function(aqs_user,
                            state=NULL,
                            county=NULL,
                            site=NULL,
+                           cbdate=NULL,
+                           cedate=NULL,
                            cbsa=NULL,
                            minlat=NULL,
                            maxlat=NULL,
@@ -188,6 +204,14 @@ aqs_annualData <- function(aqs_user,
     if (substr(edate, 1, 4) != substr(bdate, 1, 4)){
         stop("'bdate' and 'edate' must be the same year.")
     }
+    if (!is.null(cbdate) || !is.null(cedate)){
+        if (is.null(cbdate) || is.null(cedate)) stop("If 'cbdate' or 'cedate' is provided, the other must also be provided.")
+        if (checkDates(cbdate)) stop("'cbdate' must be a string of length 8 in the format YYYYMMDD.")
+        if (checkDates(cedate)) stop("'cedate' must be a string of length 8 in the format YYYYMMDD.")
+        if (as.Date(cbdate, format="%Y%m%d") > as.Date(cedate, format="%Y%m%d")){
+            stop("'cbdate' must be the same as or prior to 'cedate'.")
+        }
+    }
     if (length(param)>5){
         stop("'param' is limited to 5 parameter codes in a single request.")
     }
@@ -201,13 +225,15 @@ aqs_annualData <- function(aqs_user,
                  state=state,
                  county=county,
                  site=site,
+                 cbdate=cbdate,
+                 cedate=cedate,
                  cbsa=cbsa,
                  minlat=minlat,
                  maxlat=maxlat,
                  minlon=minlon,
                  maxlon=maxlon)
     # Only pass needed variables
-    vars <- vars[names(vars) %in% list_vars(endpoint=endpoint)]
+    vars <- vars[names(vars) %in% c(list_required_vars(endpoint=endpoint), list_optional_vars(endpoint=endpoint))]
     out <- aqs_get(service="annualData",
                    endpoint=endpoint,
                    aqs_user=aqs_user,
@@ -316,6 +342,8 @@ aqs_dailyData <- function(aqs_user,
                            state=NULL,
                            county=NULL,
                            site=NULL,
+                           cbdate=NULL,
+                           cedate=NULL,
                            cbsa=NULL,
                            minlat=NULL,
                            maxlat=NULL,
@@ -330,6 +358,14 @@ aqs_dailyData <- function(aqs_user,
     if (substr(edate, 1, 4) != substr(bdate, 1, 4)){
         stop("'bdate' and 'edate' must be the same year.")
     }
+    if (!is.null(cbdate) || !is.null(cedate)){
+        if (is.null(cbdate) || is.null(cedate)) stop("If 'cbdate' or 'cedate' is provided, the other must also be provided.")
+        if (checkDates(cbdate)) stop("'cbdate' must be a string of length 8 in the format YYYYMMDD.")
+        if (checkDates(cedate)) stop("'cedate' must be a string of length 8 in the format YYYYMMDD.")
+        if (as.Date(cbdate, format="%Y%m%d") > as.Date(cedate, format="%Y%m%d")){
+            stop("'cbdate' must be the same as or prior to 'cedate'.")
+        }
+    }
     if (length(param)>5){
         stop("'param' is limited to 5 parameter codes in a single request.")
     }
@@ -343,13 +379,15 @@ aqs_dailyData <- function(aqs_user,
                  state=state,
                  county=county,
                  site=site,
+                 cbdate=cbdate,
+                 cedate=cedate,
                  cbsa=cbsa,
                  minlat=minlat,
                  maxlat=maxlat,
                  minlon=minlon,
                  maxlon=maxlon)
     # Only pass needed variables
-    vars <- vars[names(vars) %in% list_vars(endpoint=endpoint)]
+    vars <- vars[names(vars) %in% c(list_required_vars(endpoint=endpoint), list_optional_vars(endpoint=endpoint))]
     out <- aqs_get(service="dailyData",
                    endpoint=endpoint,
                    aqs_user=aqs_user,

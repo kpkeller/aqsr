@@ -8,7 +8,7 @@
 ##' @param service API service for which data are requested. See \code{\link{list_services}}
 ##' @param endpoint Service endpoint
 ##' @param aqs_user User information in the form of a list with \code{email} and \code{key}. See \code{\link{create_user}}.
-##' @param vars List of variables for the endpoint request. See \code{\link{list_vars}}.
+##' @param vars List of variables for the endpoint request. See \code{\link{list_required_vars}}.
 ##' @param run Logical indicating whether request should be submitted (\code{TRUE}, default), or only the query URL returned (\code{FALSE}).
 ##' @param rawResponse Logical indicating that JSON response should be returned directly without checking or formatting. Used primarily in debugging.
 ##' @importFrom httr modify_url GET
@@ -122,28 +122,27 @@ checkEndpoint <- function(service, endpoint){
 
 # Need to match all variables here, not just one
 checkVars <- function(endpoint, vars){
-    current_vars <- list_vars(endpoint)
-    if (is.null(current_vars) & (missing(vars) || is.null(vars))){
+    required_vars <- list_required_vars(endpoint)
+    if (is.null(required_vars) & (missing(vars) || is.null(vars))){
         return(TRUE)
     }
     # Check that needed vars are provided
-    for (i in seq_along(current_vars)){
-        ismatch <- match(current_vars[i],  names(vars), nomatch=0)
+    for (i in seq_along(required_vars)){
+        ismatch <- match(required_vars[i],  names(vars), nomatch=0)
         if (!ismatch){
-            stop(paste0("Variable '", current_vars[i], "' is required for endpoint ", endpoint, ". See list_vars()."))
+            stop(paste0("Variable '", required_vars[i], "' is required for endpoint ", endpoint, ". See list_required_vars()."))
         }
     }
     p <- length(vars)
     # Check that provided vars are acceptable
+    acceptable_vars <- c(required_vars, list_optional_vars(endpoint))
     for (i in 1:p){
-        ismatch <- match(names(vars)[i],  current_vars, nomatch=0)
+        ismatch <- match(names(vars)[i],  acceptable_vars, nomatch=0)
         if (!ismatch){
-            stop(paste0("Variable '", names(vars)[i], "' is not in the list of required variables for endpoint ", endpoint, ". See list_vars()."))
+            stop(paste0("Variable '", names(vars)[i], "' is not in the list of required or optional variables for endpoint ", endpoint, ". See list_required_vars() and list_optional_vars()."))
         }
     }
-
 return(TRUE)
-
 }
 
 
