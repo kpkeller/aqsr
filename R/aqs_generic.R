@@ -25,6 +25,7 @@ aqs_get <- function(url=NULL,
         call_url <- url
     } else {
     if (missing(aqs_user)) stop("User info required. Please provide your credentials (see 'create_user()'")
+    if (aqs_user$email=="test@aqs.api") warning("Function called with test AQS account. You should register for you own account (see `aqs_signup()`) instead of using test account.")
     if (service!="signup") checkUser(aqs_user)
 
     checkService(service)
