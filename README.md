@@ -35,7 +35,7 @@ All functions for requesting data from the API require that the list generated b
 The primary functions for requesting measurements stored in the AQS database are `aqs_annualData()`, `aqs_dailyData()`, and `aqs_sampleData()`. Variations of each function exist for queries targeting a specific criteria, e.g. `aqs_annualData_byState()`.  The underlying function that queries the API is `aqs_get()`, which can be called directly if desired.
 
 ### Available Services
-A full list of services provided by the AQS API can be accessed by calling `list_services()`. These services include `sampleData`, `signup`, `list`, and `metaData`, among others.  The endpoints for each service are listed in `list_endpoints()`, and the variables required for each endpoint are listed in `list_vars()`. For example:
+A full list of services provided by the AQS API can be accessed by calling `list_services()`. These services include `sampleData`, `signup`, `list`, and `metaData`, among others.  The endpoints for each service are listed in `list_endpoints()`, and the variables required for each endpoint are listed in `list_required_vars()`. For example:
 
 ```
 # List all services
@@ -43,7 +43,7 @@ list_services()
 # List endpoints for "dailyData" service
 list_endpoints(service="dailyData") 
 # List variables needed for obtaining data using the  "byCounty" endpoint
-list_vars(endpoint="byCounty") 
+list_required_vars(endpoint="byCounty") 
 ```
 
 ### Available Data
