@@ -37,6 +37,8 @@ list_services <- function(){
 list_endpoints <- function(service=NULL){
     endpoints <- list(signup=NULL,
                       metaData=c("isAvailable",
+                                 "revisionHistory",
+                                 "issues",
                                  "fieldsByService"),
                       list=c("states",
                              "countiesByState",
@@ -108,6 +110,8 @@ list_endpoints <- function(service=NULL){
 list_vars <- function(endpoint=NULL){
 
   vars <- list(isAvailable=NULL,
+               issues=NULL,
+               revisionHistory=NULL,
                fieldsByServce=c("service"),
                states=NULL,
                countiesByState=c("state"),
